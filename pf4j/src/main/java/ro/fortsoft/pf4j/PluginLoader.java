@@ -54,7 +54,7 @@ class PluginLoader {
 
     public PluginLoader(PluginManager pluginManager, PluginDescriptor pluginDescriptor, File pluginRepository) {
         this.pluginRepository = pluginRepository;
-        classesDirectory = new File(pluginRepository, "classes");
+        classesDirectory = new File(pluginRepository, "target/plugin-classes");
         libDirectory = new File(pluginRepository, "lib");
         ClassLoader parent = getClass().getClassLoader(); 
         pluginClassLoader = new PluginClassLoader(pluginManager, pluginDescriptor, parent);        

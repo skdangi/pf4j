@@ -91,7 +91,7 @@ public class DefaultPluginManager implements PluginManager {
      * Th plugins directory is supplied by System.getProperty("pf4j.pluginsDir", "plugins").
      */
     public DefaultPluginManager() {
-    	this(new File(System.getProperty("pf4j.pluginsDir", "plugins")));
+    	this(new File(System.getProperty("pf4j.pluginsDir", "../plugins")));
     }
     
     /**
@@ -186,6 +186,7 @@ public class DefaultPluginManager implements PluginManager {
     @Override
     public void loadPlugins() {
     	// check for plugins directory
+    	LOG.info(pluginsDirectory.getAbsolutePath());
         if (!pluginsDirectory.exists() || !pluginsDirectory.isDirectory()) {
             LOG.error("No '" + pluginsDirectory + "' directory");
             return;
